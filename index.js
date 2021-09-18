@@ -27,7 +27,7 @@ function calculateHex() {
 
     for (let i in VALUES) {
 
-        if (isNaN(VALUES[i]) || VALUES[i] % 1 !=0 || VALUES[i] < 0 || VALUES[i] > 255 ) {
+        if (isNaN(VALUES[i]) || VALUES[i] % 1 != 0 || VALUES[i] < 0 || VALUES[i] > 255) {
             console.error(ERROR_MESSAGE_RANGE);
             resultValue.innerText = ERROR_MESSAGE_RANGE;
             return;
@@ -62,23 +62,18 @@ function calculateHex() {
 }
 
 function findHexLetter(hexValue) {
-    if (hexValue < 10) {
-        return hexValue
-    } else if (hexValue === 10) {
-        return "A";
-    } else if (hexValue === 11) {
-        return "B";
-    } else if (hexValue === 12) {
-        return "C";
-    } else if (hexValue === 13) {
-        return "D";
-    } else if (hexValue === 14) {
-        return "E";
-    } else if (hexValue === 15) {
-        return "F";
-    } else {
-        console.error("Incorrect value was entered, please check your code");
-        return "";
+
+    switch (hexValue) {
+        case 10: return "A";
+        case 11: return "B";
+        case 12: return "C";
+        case 13: return "D";
+        case 14: return "E";
+        case 15: return "F";
+        default: {
+            console.error("Incorrect value was entered, please check your code");
+            return "";
+        }
     }
 }
 
