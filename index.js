@@ -1,6 +1,3 @@
-
-//Add leading zeroes for hex
-
 //Get Button element and assign function to it when clicked
 document.getElementById("convert").onclick = calculateHex;
 
@@ -40,7 +37,7 @@ function calculateHex() {
 
     //Start Calculating hex value
     for (let i in VALUES) {
-        //Take first value, its whole division by 16 and find hex for it.
+        //Take value, its whole division by 16 and find hex for it.
         let first = parseInt((VALUES[i] / 16), 10);
         if (first < 10) {
             hexValue += first;
@@ -56,6 +53,8 @@ function calculateHex() {
             } else {
                 hexValue += findHexLetter(second);
             }
+        } else {
+            hexValue += "0";
         }
     }
 
