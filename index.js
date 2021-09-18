@@ -7,18 +7,34 @@ document.getElementById("convert").onclick = calculateHex;
 
 function calculateHex() {
     let hexValue = "";
-    const ERROR_MESSAGE = "Incorrect value was entered. There should be 3 values separated by comma"
+    const ERROR_MESSAGE_LENGTH = "Incorrect value was entered. There should be 3 values separated by comma"
+    const ERROR_MESSAGE_RANGE = "Incorrect value was entered. Values should range from 0 to 255 inclusive"
 
     let rgbValue = document.getElementById("rgbValue").value;
     let resultValue = document.getElementById("result");
     const VALUES = rgbValue.split(",");
 
-    //Check for issues
-    if(VALUES.length != 3){
-        console.error(ERROR_MESSAGE);
-        resultValue.innerText = ERROR_MESSAGE;
+    //Check for issues --- Input should contain 3 values separated by comma
+    if (VALUES.length != 3) {
+        console.error(ERROR_MESSAGE_LENGTH);
+        resultValue.innerText = ERROR_MESSAGE_LENGTH;
         return;
     }
+
+
+    //Check for issues -- There should be only digits. 
+    //Each input should contain numbers 0-225
+    for (let i in VALUES) {
+
+        if (isNaN(VALUES[i]) || VALUES[i] < 0 || VALUES[i] > 255) {
+            console.error(ERROR_MESSAGE_RANGE);
+            resultValue.innerText = ERROR_MESSAGE_RANGE;
+            return;
+        }
+    }
+
+    //Check for issues -- There should be only whole numbers
+
 
     for (let i in VALUES) {
 
