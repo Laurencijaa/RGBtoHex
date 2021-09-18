@@ -3,14 +3,14 @@ document.getElementById("convert").onclick = calculateHex;
 
 function calculateHex() {
     let hexValue = "";
-    const ERROR_MESSAGE_LENGTH = "Incorrect value was entered. There should be 3 values separated by comma"
-    const ERROR_MESSAGE_RANGE = "Incorrect value was entered. Values should range from 0 to 255 inclusive"
+    const ERROR_MESSAGE_LENGTH = "Incorrect value was entered. There should be 3 values separated by comma."
+    const ERROR_MESSAGE_RANGE = "Incorrect value was entered. Values should range from 0 to 255 inclusive."
 
     //Get value entered by user and split it
     let rgbValue = document.getElementById("rgbValue").value;
     const VALUES = rgbValue.split(",");
 
-    //Get placeholder for where result will be stored
+    //Get placeholder for result
     let resultValue = document.getElementById("result");
 
     //Check for issues --- Input should contain 3 values separated by comma
@@ -77,7 +77,7 @@ function findHexLetter(hexValue) {
     } else if (hexValue === 15) {
         return "F";
     } else {
-        console.error("Incorrect value was, please check your code");
+        console.error("Incorrect value was entered, please check your code");
         return "";
     }
 }
