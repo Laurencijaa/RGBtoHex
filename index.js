@@ -7,15 +7,15 @@
 document.getElementById("convert").onclick = calculateHex;
 
 function calculateHex() {
-    var hexValue = "";
+    let hexValue = "";
 
-    var rgbValue = document.getElementById("rgbValue").value;
+    let rgbValue = document.getElementById("rgbValue").value;
     const values = rgbValue.split(",");
 
-    for (var i in values) {
+    for (let i in values) {
 
         //Take first value, its whole division by 16 and find hex for it.
-        var first = parseInt((values[i] / 16), 10);
+        let first = parseInt((values[i] / 16), 10);
         if (first < 10) {
             hexValue += first;
         } else {
@@ -23,7 +23,7 @@ function calculateHex() {
         }
 
         //Check if there is division by 16 reminder, and find hex for it.
-        var second = values[i] % 16;
+        let second = values[i] % 16;
         if (second !== 0) {
             if (second < 10) {
                 hexValue += second;
