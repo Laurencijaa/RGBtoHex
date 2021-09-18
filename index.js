@@ -12,7 +12,7 @@ function calculateHex() {
     var rgbValue = document.getElementById("rgbValue").value;
     const values = rgbValue.split(",");
 
-    for (var i = 0; i < values.length; i++) {
+    for (var i in values) {
 
         //Take first value, its whole division by 16 and find hex for it.
         var first = parseInt((values[i] / 16), 10);
