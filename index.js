@@ -1,21 +1,29 @@
 
 //Check for valid value. Inform user if value incorrect and throw some message. Vertes per kableli.
-//Change to let where appropriate
-//Add leading values
+//Add leading zeroes for hex
 
 //Get Button element and assign function to it when clicked
 document.getElementById("convert").onclick = calculateHex;
 
 function calculateHex() {
     let hexValue = "";
+    const ERROR_MESSAGE = "Incorrect value was entered. There should be 3 values separated by comma"
 
     let rgbValue = document.getElementById("rgbValue").value;
-    const values = rgbValue.split(",");
+    let resultValue = document.getElementById("result");
+    const VALUES = rgbValue.split(",");
 
-    for (let i in values) {
+    //Check for issues
+    if(VALUES.length != 3){
+        console.error(ERROR_MESSAGE);
+        resultValue.innerText = ERROR_MESSAGE;
+        return;
+    }
+
+    for (let i in VALUES) {
 
         //Take first value, its whole division by 16 and find hex for it.
-        let first = parseInt((values[i] / 16), 10);
+        let first = parseInt((VALUES[i] / 16), 10);
         if (first < 10) {
             hexValue += first;
         } else {
@@ -23,7 +31,7 @@ function calculateHex() {
         }
 
         //Check if there is division by 16 reminder, and find hex for it.
-        let second = values[i] % 16;
+        let second = VALUES[i] % 16;
         if (second !== 0) {
             if (second < 10) {
                 hexValue += second;
@@ -33,7 +41,7 @@ function calculateHex() {
         }
     }
 
-    document.getElementById("result").innerText = "Hex value is: " + hexValue;
+    resultValue.innerText = "Hex value is: " + hexValue;
     console.log(hexValue);
 
 }
